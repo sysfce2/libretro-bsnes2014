@@ -38,6 +38,10 @@ include:
   - project: 'libretro-infrastructure/ci-templates'
     file: '/linux-x64.yml'
 
+  # Linux ARM 64-bit
+  - project: 'libretro-infrastructure/ci-templates'
+    file: '/linux-aarch64.yml'
+
   # Linux 32-bit
   - project: 'libretro-infrastructure/ci-templates'
     file: '/linux-i686.yml'
@@ -90,6 +94,12 @@ stages:
 libretro-build-linux-x64:
   extends:
     - .libretro-linux-x64-make-default
+    - .core-defs
+
+# Linux ARM 64-bit
+libretro-build-linux-aarch64:
+  extends:
+    - .libretro-linux-aarch64-make-default
     - .core-defs
 
 # Linux 32-bit
@@ -173,6 +183,12 @@ libretro-build-linux-x64-balanced:
     - .libretro-linux-x64-make-default
     - .core-defs-balanced
 
+# Linux ARM 64-bit
+libretro-build-linux-aarch64-balanced:
+  extends:
+    - .libretro-linux-aarch64-make-default
+    - .core-defs-balanced
+
 # Linux 32-bit
 libretro-build-linux-i686-balanced:
   extends:
@@ -252,6 +268,12 @@ libretro-build-tvos-arm64-balanced:
 libretro-build-linux-x64-accuracy:
   extends:
     - .libretro-linux-x64-make-default
+    - .core-defs-accuracy
+
+# Linux ARM 64-bit
+libretro-build-linux-aarch64-accuracy:
+  extends:
+    - .libretro-linux-aarch64-make-default
     - .core-defs-accuracy
 
 # Linux 32-bit
